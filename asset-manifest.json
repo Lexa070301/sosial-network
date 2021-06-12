@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/sosial-network/static/css/main.865b20f0.chunk.css",
+    "main.js": "/sosial-network/static/js/main.7cd70174.chunk.js",
+    "main.js.map": "/sosial-network/static/js/main.7cd70174.chunk.js.map",
+    "runtime-main.js": "/sosial-network/static/js/runtime-main.ae85ea3f.js",
+    "runtime-main.js.map": "/sosial-network/static/js/runtime-main.ae85ea3f.js.map",
+    "static/js/2.8dc39a57.chunk.js": "/sosial-network/static/js/2.8dc39a57.chunk.js",
+    "static/js/2.8dc39a57.chunk.js.map": "/sosial-network/static/js/2.8dc39a57.chunk.js.map",
+    "static/css/3.e5ffcef6.chunk.css": "/sosial-network/static/css/3.e5ffcef6.chunk.css",
+    "static/js/3.bc889cd4.chunk.js": "/sosial-network/static/js/3.bc889cd4.chunk.js",
+    "static/js/3.bc889cd4.chunk.js.map": "/sosial-network/static/js/3.bc889cd4.chunk.js.map",
+    "static/css/4.be46cc32.chunk.css": "/sosial-network/static/css/4.be46cc32.chunk.css",
+    "static/js/4.87eeab90.chunk.js": "/sosial-network/static/js/4.87eeab90.chunk.js",
+    "static/js/4.87eeab90.chunk.js.map": "/sosial-network/static/js/4.87eeab90.chunk.js.map",
+    "static/js/5.7296abea.chunk.js": "/sosial-network/static/js/5.7296abea.chunk.js",
+    "static/js/5.7296abea.chunk.js.map": "/sosial-network/static/js/5.7296abea.chunk.js.map",
+    "index.html": "/sosial-network/index.html",
+    "static/css/3.e5ffcef6.chunk.css.map": "/sosial-network/static/css/3.e5ffcef6.chunk.css.map",
+    "static/css/4.be46cc32.chunk.css.map": "/sosial-network/static/css/4.be46cc32.chunk.css.map",
+    "static/css/main.865b20f0.chunk.css.map": "/sosial-network/static/css/main.865b20f0.chunk.css.map",
+    "static/js/2.8dc39a57.chunk.js.LICENSE.txt": "/sosial-network/static/js/2.8dc39a57.chunk.js.LICENSE.txt",
+    "static/media/default-avatar.jpg": "/sosial-network/static/media/default-avatar.079786c9.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ae85ea3f.js",
+    "static/js/2.8dc39a57.chunk.js",
+    "static/css/main.865b20f0.chunk.css",
+    "static/js/main.7cd70174.chunk.js"
+  ]
+}
