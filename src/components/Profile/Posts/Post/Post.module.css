@@ -1,0 +1,16 @@
+.item {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--bg);
+    box-shadow: var(--neumorphism);
+    border-radius: var(--radius);
+}
+
+.avatar {
+    margin-right: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}

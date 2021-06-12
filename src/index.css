@@ -1,0 +1,57 @@
+:root {
+    --bg: #E0E5EB;
+    --textColor: #34305e;
+    --neumorphism: 5px 5px 10px rgba(0, 0, 0, 0.25),
+    -5px -5px 10px rgba(255, 255, 255, 0.5);
+    --neumorphism-inset: inset 5px 5px 10px rgba(0, 0, 0, 0.25),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.5);
+    --radius: 15px;
+    --main: #9587FF;
+    --accent: #FFC107;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--main);
+    border-radius: 5px;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    color: var(--textColor);
+    background-color: var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+textarea {
+    box-sizing: border-box;
+    padding: 20px;
+    border: none;
+    resize: none;
+    display: block;
+    width: 100%;
+    outline: none;
+    background-color: var(--bg);
+    border-radius: var(--radius);
+    box-shadow: var(--neumorphism-inset);
+}
+
+textarea, input {
+    font-size: 16px;
+}

@@ -1,0 +1,91 @@
+.dialogs {
+    display: flex;
+    justify-content: flex-start;
+    height: 500px;
+}
+
+.dialogsTitle {
+    margin-bottom: 20px;
+}
+
+.usersScroll {
+    margin-left: -15px;
+    padding: 15px;
+    overflow-y: auto;
+    margin-right: 15px;
+}
+
+.users {
+    width: 200px;
+}
+
+.user {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: var(--bg);
+    box-shadow: var(--neumorphism);
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    color: var(--textColor);
+}
+
+.user:active {
+    box-shadow: var(--neumorphism-inset);
+}
+
+.user.active {
+    box-shadow: var(--neumorphism-inset);
+}
+
+
+.messagesWrap {
+    border-left: 1px solid lightgray;
+    position: relative;
+    display: flex;
+    flex: 3;
+}
+
+.messagesScroll {
+    padding: 15px;
+    flex-direction: column;
+    overflow-y: auto;
+    width: 100%;
+    margin-bottom: 120px;
+}
+
+.messages {
+    height: fit-content;
+}
+
+.message {
+    padding: 20px;
+    display: flex;
+    background-color: var(--bg);
+    box-shadow: var(--neumorphism);
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    color: var(--textColor);
+}
+
+.sendMessages {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.textarea {
+    margin-right: 20px;
+    height: 100px;
+}

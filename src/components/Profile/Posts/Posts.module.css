@@ -1,0 +1,22 @@
+.posts {
+    display: flex;
+    flex-direction: column;
+}
+
+.new_post {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.postsTitle {
+    margin-bottom: 20px;
+}
+
+.textarea {
+    height: 150px;
+}
+
+.btn {
+    margin-top: 20px;
+}

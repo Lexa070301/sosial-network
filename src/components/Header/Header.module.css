@@ -1,0 +1,23 @@
+.header {
+    grid-area: header;
+    background-color: var(--bg);
+    box-shadow: var(--neumorphism);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    height: 50px;
+}
+
+.loginBlock {
+    margin-left: auto;
+    display: flex;
+}
+
+.loginBlock a{
+    text-decoration: none;
+    color: var(--textColor);
+}

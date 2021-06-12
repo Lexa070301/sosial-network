@@ -1,0 +1,63 @@
+.aside {
+    background-color: var(--bg);
+    box-shadow: var(--neumorphism);
+    border-radius: var(--radius);
+    grid-area: aside;
+    padding: 30px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+}
+
+.item {
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+.item a {
+    background-color: var(--bg);
+    box-shadow: var(--neumorphism);
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    padding-left: 20px;
+    display: block;
+    text-decoration: none;
+    position: relative;
+    color: var(--textColor);
+}
+
+.item a:active {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.25),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.item a:after {
+    display: block;
+    position: absolute;
+    content: "";
+    height: calc(100% - 10px);
+    width: 5px;
+    border-radius: 5px;
+    left: 5px;
+    top: 5px;
+}
+
+.item a.active {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.25),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.item a.active:after {
+    background-color: var(--main);
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.25),
+    inset -1px -1px 2px rgba(255, 255, 255, 0.5);
+}
