@@ -89,7 +89,7 @@ export let AppContainer = compose(
 
 export let MainApp = (props) => {
   return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Provider store={store}>
           <AppContainer/>
         </Provider>
