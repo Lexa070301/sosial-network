@@ -29,7 +29,6 @@ const AddPost = reduxForm({
 })(AddPostForm)
 
 const Posts = React.memo(props => {
-  console.log("render")
   let PostsDataElements = props.ProfilePage.PostsData.map(post =>
       <Post key={post.id}
             content={post.text}
