@@ -1,9 +1,21 @@
 import classes from "./ProfileInfo.module.css";
 import Preloader from "../../common/preloader/Preloader";
 import avatar from "../../../assets/images/default-avatar.jpg"
-import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import React, {useState} from "react";
+import {ProfileData} from "./ProfileData";
+import {ReduxProfileForm} from "./ProfileForm";
 
-const ProfileInfo = ({profile, isOwner, status, updateStatus, savePhoto}) => {
+
+const ProfileInfo = ({profile, isOwner, status, updateStatus, savePhoto, saveProfile}) => {
+
+  let [editMode, setEditMode] = useState(false);
+
+  const onSubmit = (formData) => {
+    saveProfile(formData).then(() => {
+      setEditMode(false);
+    })
+  }
+
   if (!profile) {
     return <Preloader/>
   } else {
@@ -15,11 +27,8 @@ const ProfileInfo = ({profile, isOwner, status, updateStatus, savePhoto}) => {
 
     return (
         <div>
-          {/*<img className={classes.img}*/}
-          {/*     src="https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg"*/}
-          {/*     alt="Img"/>*/}
           <div className={classes.info_wrap}>
-            <label htmlFor="load-avatar">
+            <label htmlFor="load-avatar" className={classes.load_avatar}>
               <img className={classes.avatar}
                    src={profile.photos.small ? profile.photos.small : avatar}
                    alt="Img"/>
@@ -27,16 +36,18 @@ const ProfileInfo = ({profile, isOwner, status, updateStatus, savePhoto}) => {
                 isOwner && <input id={"load-avatar"} type={"file"} onChange={onAvatarSelected}/>
               }
             </label>
-            <div className={classes.info}>
-              <span className={classes.name}>
-                {profile.fullName}
-              </span>
-              <p className={classes.description}>
-                {profile.aboutMe}
-              </p>
-              <ProfileStatusWithHooks status={status}
-                                      updateStatus={updateStatus}/>
-            </div>
+            {
+              editMode ?
+                  <ReduxProfileForm initialValues={profile}
+                                    profile={profile}
+                                    onSubmit={onSubmit}/> :
+                  <ProfileData profile={profile}
+                               status={status}
+                               updateStatus={updateStatus}
+                               isOwner={isOwner}
+                               editMode={editMode}
+                               setEditMode={setEditMode}/>
+            }
           </div>
         </div>
     );
