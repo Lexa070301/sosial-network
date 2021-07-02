@@ -11,13 +11,14 @@ class LoginAPIComponent extends React.Component {
 
   render() {
     return (
-        <Login login={this.props.login} isAuth={this.props.isAuth}/>
+        <Login login={this.props.login} isAuth={this.props.isAuth} captchaUrl={this.props.captchaUrl}/>
     )
   }
 }
 
 let mapStateToProps = (state) => {
   return {
+    captchaUrl: state.Auth.captchaUrl,
     isAuth: state.Auth.isAuth
   }
 }

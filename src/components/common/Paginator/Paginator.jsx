@@ -1,6 +1,6 @@
 import classes from "./Paginator.module.css";
 import React, {useState} from "react";
-
+import cn from "classnames"
 
 let Paginator = ({totalItemsCount, pageSize, onPageChange, currentPage, portionSize}) => {
   let pagesCount = Math.ceil(totalItemsCount / pageSize);
@@ -34,7 +34,9 @@ let Paginator = ({totalItemsCount, pageSize, onPageChange, currentPage, portionS
                 <span onClick={() => onPageChange(page)}
                       key={page}
                       style={{"margin": "3px"}}
-                      className={currentPage === page ? classes.selectedPage : ""}>
+                      className={cn({
+                        [classes.selectedPage]: currentPage === page
+                      }, classes.pageNumber)}>
                   {page}
                 </span>
             )

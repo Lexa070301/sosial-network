@@ -3,9 +3,6 @@ import ReactDOM from "react-dom";
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {MainApp} from "./App";
-// import App from "./App";
-// import store from "./redux/reduxStore";
-// import {Provider} from "react-redux";
 
 
 ReactDOM.render(

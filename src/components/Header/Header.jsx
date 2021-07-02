@@ -1,6 +1,8 @@
 import classes from "./Header.module.css";
 import {NavLink} from "react-router-dom";
 
+import logo from "../../logo.svg"
+
 const Header = (props) => {
 
   const logOut = () => {
@@ -9,7 +11,7 @@ const Header = (props) => {
 
   return (
       <header className={classes.header}>
-        <img className={classes.logo} src="logo192.png" alt="Logo"/>
+        <img className={classes.logo} src={logo} alt="Logo"/>
         <div className={classes.loginBlock}>
           {
             props.isAuth ?

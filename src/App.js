@@ -1,7 +1,7 @@
 import './App.css';
 import {
-  BrowserRouter as Router,
-  Route
+  BrowserRouter as Router, Redirect,
+  Route, Switch
 } from "react-router-dom";
 import Aside from "./components/Aside/Aside";
 import News from "./components/News/News";
@@ -16,18 +16,32 @@ import {compose} from "redux";
 import {connect, Provider} from "react-redux";
 import {initialize} from "./redux/appReducer";
 import Preloader from "./components/common/preloader/Preloader";
-import ReactDOM from "react-dom";
 import store from "./redux/reduxStore";
+import Swal from 'sweetalert2'
 
 const DialogsContainer = React.lazy(() => import ("./components/Dialogs/DialogsContainer"));
 const ProfileContainer = React.lazy(() => import ("./components/Profile/ProfileContainer"));
 
 
 class App extends Component {
+  catchAllUnhandledErrors = (promiseRejectionEvent) => {
+    Swal.fire({
+      title: 'Error!',
+      text: promiseRejectionEvent,
+      icon: 'error',
+      confirmButtonText: ':('
+    })
+  }
+
   componentDidMount() {
     if (!this.props.initialized) {
       this.props.initialize();
     }
+    window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
   }
 
   render() {
@@ -39,31 +53,39 @@ class App extends Component {
           <HeaderContainer/>
           <Aside/>
           <main className="main">
-            <Route path="/profile/:userId?">
-              <React.Suspense fallback={<Preloader/>}>
-                <ProfileContainer/>
-              </React.Suspense>
-            </Route>
-            <Route path="/dialogs">
-              <React.Suspense fallback={<Preloader/>}>
-                <DialogsContainer/>
-              </React.Suspense>
-            </Route>
-            <Route path="/users">
-              <UsersContainer/>
-            </Route>
-            <Route path="/news">
-              <News/>
-            </Route>
-            <Route path="/music">
-              <Music/>
-            </Route>
-            <Route path="/settings">
-              <Settings/>
-            </Route>
-            <Route path="/login">
-              <LoginContainer/>
-            </Route>
+            <Switch>
+              <Route exact path="/">
+                <Redirect to={"/profile"}/>
+              </Route>
+              <Route path="/profile/:userId?">
+                <React.Suspense fallback={<Preloader/>}>
+                  <ProfileContainer/>
+                </React.Suspense>
+              </Route>
+              <Route path="/dialogs">
+                <React.Suspense fallback={<Preloader/>}>
+                  <DialogsContainer/>
+                </React.Suspense>
+              </Route>
+              <Route path="/users">
+                <UsersContainer/>
+              </Route>
+              <Route path="/news">
+                <News/>
+              </Route>
+              <Route path="/music">
+                <Music/>
+              </Route>
+              <Route path="/settings">
+                <Settings/>
+              </Route>
+              <Route path="/login">
+                <LoginContainer/>
+              </Route>
+              <Route path="*">
+                <div>404 PAGE NOT FOUND</div>
+              </Route>
+            </Switch>
           </main>
         </div>
     );
@@ -89,7 +111,7 @@ export let AppContainer = compose(
 
 export let MainApp = (props) => {
   return (
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <Provider store={store}>
           <AppContainer/>
         </Provider>

@@ -73,7 +73,11 @@
 }
 
 .contactLink {
-    padding: 5px 10px;
+    padding: 3px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
     border-radius: 5px;
     background-color: var(--main);
     color: white;
@@ -96,4 +100,8 @@
 .form_item b {
     display: block;
     margin-bottom: 5px;
+}
+
+.status {
+    word-break: break-word;
 }

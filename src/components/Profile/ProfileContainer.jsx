@@ -22,7 +22,7 @@ export class ProfileAPIContainer extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.match.params.userId != this.props.match.params.userId) {
+    if (prevProps.match.params.userId !== this.props.match.params.userId) {
       this.refreshProfile();
     }
   }

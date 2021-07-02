@@ -36,7 +36,7 @@ export const ProfileData = ({profile, status, updateStatus, isOwner, editMode, s
         <div>
           <span>
             <b>
-              My professional skills:
+              My professional skills:&nbsp;
             </b>
             {profile.lookingForAJobDescription}
           </span>
@@ -51,7 +51,7 @@ export const ProfileData = ({profile, status, updateStatus, isOwner, editMode, s
         <div>
           <span>
             <b>
-              Contacts:
+              Contacts:&nbsp;
             </b>
             {
               Object.keys(profile.contacts).map(key =>

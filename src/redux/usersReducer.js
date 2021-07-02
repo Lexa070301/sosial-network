@@ -1,5 +1,6 @@
 import {usersAPI} from "../api/api";
 import {updateObjectInArray} from "../utils/object-helpers";
+import {swal} from "../components/common/errorModal";
 
 const FOLLOW = "users/FOLLOW";
 const UNFOLLOW = "users/UNFOLLOW";
@@ -88,29 +89,45 @@ export const isLoad = (value) => ({type: IS_LOAD, value});
 export const setIsFollowing = (value, userId) => ({type: IS_FOLLOWING, value, userId});
 
 export const getUsers = (currentPage, pageSize) => async (dispatch) => {
-  dispatch(isLoad(true));
-  let response = await usersAPI.getUsers(currentPage, pageSize)
-  dispatch(isLoad(false));
-  dispatch(setUsers(response.items));
-  dispatch(setTotalUsersCount(response.totalCount));
+  try {
+    dispatch(isLoad(true));
+    let response = await usersAPI.getUsers(currentPage, pageSize)
+    dispatch(isLoad(false));
+    dispatch(setUsers(response.items));
+    dispatch(setTotalUsersCount(response.totalCount));
+  } catch (error) {
+    swal(error.message);
+  }
 }
 
 const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {
-  dispatch(setIsFollowing(true, userId));
-  let response = await apiMethod(userId)
-  if (response.resultCode === 0) {
-    dispatch(actionCreator(userId))
+  try {
+    dispatch(setIsFollowing(true, userId));
+    let response = await apiMethod(userId)
+    if (response.resultCode === 0) {
+      dispatch(actionCreator(userId))
+    }
+    dispatch(setIsFollowing(false, userId));
+  } catch (error) {
+    swal(error.message);
   }
-  dispatch(setIsFollowing(false, userId));
 }
 
 export const unfollow = (userId) => async (dispatch) => {
-  followUnfollowFlow(dispatch, userId,
-      usersAPI.unFollow.bind(usersAPI), unfollowSuccess);
+  try {
+    followUnfollowFlow(dispatch, userId,
+        usersAPI.unFollow.bind(usersAPI), unfollowSuccess);
+  } catch (error) {
+    swal(error.message);
+  }
 }
 
 export const follow = (userId) => async (dispatch) => {
-  followUnfollowFlow(dispatch, userId,
-      usersAPI.follow.bind(usersAPI), followSuccess);
+  try {
+    followUnfollowFlow(dispatch, userId,
+        usersAPI.follow.bind(usersAPI), followSuccess);
+  } catch (error) {
+    swal(error.message);
+  }
 
 }
